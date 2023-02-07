@@ -1,4 +1,4 @@
-package coma.application.scripts;
+package com.application.scripts;
 
 public class BrowserTest {
 
