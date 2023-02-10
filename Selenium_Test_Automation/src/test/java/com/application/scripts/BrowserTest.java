@@ -35,7 +35,7 @@ public class BrowserTest {
 		driver.navigate().forward();
 		Thread.sleep(1000);
 		driver.navigate().refresh();
-		//System.out.println(driver.getPageSource());
+		System.out.println(driver.getPageSource());
 	}
 
 	@AfterClass
