@@ -40,7 +40,7 @@ public class BrowserTest {
 
 	@AfterClass
 	public void closeBrowser() {
-		driver.quit();
+		driver.quit(); //Terminate
 	}
 
 }
