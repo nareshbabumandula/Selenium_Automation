@@ -36,6 +36,7 @@ public class BrowserTest {
 		Thread.sleep(1000);
 		driver.navigate().refresh();
 		System.out.println(driver.getPageSource());
+		System.out.println(driver.getWindowHandle()); // browser session ID
 	}
 
 	@AfterClass
