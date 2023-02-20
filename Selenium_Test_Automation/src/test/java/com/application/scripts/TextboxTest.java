@@ -34,9 +34,9 @@ public class TextboxTest {
 		System.out.println(username.getTagName());
 		
 		// enter data into the textbox
-		username.sendKeys("juweria");
+		username.sendKeys("padma");
 		System.out.println(username.getAttribute("value"));
-		Assert.assertEquals(username.getAttribute("value"), "juweria", "Expected value is not macthed with the actual value");
+		Assert.assertEquals(username.getAttribute("value"), "padma", "Expected value is not macthed with the actual value");
 		
 	}
 	
