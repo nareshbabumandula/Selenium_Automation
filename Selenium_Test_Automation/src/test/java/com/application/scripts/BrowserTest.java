@@ -10,6 +10,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BrowserTest {
 
 	WebDriver driver;
@@ -20,7 +22,8 @@ public class BrowserTest {
 
 		switch (browserType) {
 		case "chrome":
-			System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			break;
 		case "ff": case "firefox":
@@ -28,7 +31,8 @@ public class BrowserTest {
 			driver = new FirefoxDriver();
 			break;
 		case "edge":
-			System.setProperty("webdriver.edge.driver", "./drivers/msedgedriver.exe");
+			//System.setProperty("webdriver.edge.driver", "./drivers/msedgedriver.exe");
+			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 			break;
 		default:
