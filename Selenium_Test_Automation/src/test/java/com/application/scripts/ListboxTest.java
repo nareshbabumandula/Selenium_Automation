@@ -40,6 +40,10 @@ public class ListboxTest {
 		
 		List<WebElement> options = select.getOptions();
 		options.forEach(option->System.out.println(option.getText()));
+		Thread.sleep(2000);
+		System.out.println("Selecting last but one option from the dropdown");
+		select.selectByIndex(options.size()-1);
+		
 	}
 	
 	@AfterClass
