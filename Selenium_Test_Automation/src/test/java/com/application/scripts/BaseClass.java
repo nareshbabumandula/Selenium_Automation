@@ -8,8 +8,8 @@ import com.relevantcodes.extentreports.ExtentTest;
 
 public class BaseClass {
 
-	static ExtentTest test;
-	static ExtentReports report;
+	public static ExtentTest test;
+	public static ExtentReports report;
     
 	//The annotated method will be run before all tests in this suite have run.
 	@BeforeSuite

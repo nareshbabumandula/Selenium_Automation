@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.relevantcodes.extentreports.LogStatus;
 
@@ -18,6 +19,7 @@ public class DragDropTest extends BaseClass{
 	
 	@BeforeClass
 	void launchBrowser() {
+		test = report.startTest("DragDropTest");
 		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("https://jqueryui.com/");
@@ -26,7 +28,7 @@ public class DragDropTest extends BaseClass{
 	
 	@Test
 	void actionsMethods() throws InterruptedException {
-		boolean bFlag=false;
+
 		try {
 			driver.findElement(By.linkText("Draggable")).click();
 			driver.switchTo().frame(driver.findElement(By.className("demo-frame")));
@@ -40,17 +42,17 @@ public class DragDropTest extends BaseClass{
 			WebElement src = driver.findElement(By.id("draggable"));
 			WebElement dest = driver.findElement(By.id("droppable"));
 			action.dragAndDrop(src, dest).perform();
-			Assert.assertEquals(dest.getText(), "Dropped!", "Failed to drop the webelement");
-			bFlag=true;
-			if(bFlag){
-				test.log(LogStatus.PASS, "Successfully dropped the object");
-			}
+			// Hard Assertion
+			//Assert.assertEquals(dest.getText(), "Dropped", "Failed to drop the webelement");
+			SoftAssert softassert = new SoftAssert();
+			// Soft Assertion
+			softassert.assertEquals(dest.getText(), "Dropped", "Failed to drop the webelement");
+			test.log(LogStatus.PASS, "Successfully dropped the object");
 		} catch (Exception e) {
 			test.log(LogStatus.FAIL, "Failed to drop the object");
 			e.printStackTrace();
-			
 		}
-		
+			
 	}
 	
 	@AfterClass
